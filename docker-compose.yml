@@ -1,8 +1,8 @@
-version: '3.7'
+version: '3.1'
 
 services:
   apache:
-    build: './apache'
+    image: httpd:alpine
     restart: always
     ports:
       - 80:80
@@ -12,7 +12,6 @@ services:
       - backend
     volumes:
       - ./public_html:/usr/local/apache2/htdocs
-      - ./cert/:/usr/local/apache2/cert/
     depends_on:
       - php
       - mysql
@@ -31,6 +30,8 @@ services:
       - backend
     volumes:
       - ./database:/var/lib/mysql
+  nodejs:
+    
 networks: 
   backend:
   frontend:
