@@ -52,6 +52,9 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - ./mongo/:/data/db
+  python:
+    build: ./python
+    command: python3 ./hello_world.py
 networks: 
   backend:
   frontend:
